@@ -8,11 +8,9 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 	
@@ -29,17 +27,17 @@ public class Reminder implements KeyListener {
 		static int screenHeight;
 		static String desktopLocationString;
 		static Calendar calendar;
-        static FileWriter fw2;
-        static BufferedWriter bw2;
+        	static FileWriter fw2;
+        	static BufferedWriter bw2;
 		public static void main(String[] args) throws IOException {
-		    Dimension screenDimensions = Toolkit.getDefaultToolkit().getScreenSize();
-	        screenWidth = (int) screenDimensions.getWidth();
-	        screenHeight = (int) screenDimensions.getHeight();
+			Dimension screenDimensions = Toolkit.getDefaultToolkit().getScreenSize();
+	        	screenWidth = (int) screenDimensions.getWidth();
+	        	screenHeight = (int) screenDimensions.getHeight();
 			JFrame frame = new JFrame();
 			font = new Font("TimesNewRoman", Font.PLAIN, 100);
 			label.setFont(font);
 			label.setText("Write your Daily Reminder for Today."); 
-	        frame.setTitle("Daily Reminder Application");
+	        	frame.setTitle("Daily Reminder Application");
 			frame.addKeyListener(new Reminder());
 			frame.add(label);
 			frame.setSize(screenWidth, screenHeight); 
@@ -48,18 +46,18 @@ public class Reminder implements KeyListener {
 			desktopLocationString = System.getProperty("user.home") + "/Desktop";
 			//File desktopLocation = new File(desktopLocationString, "test.txt");
 			//fw = new FileWriter(desktopLocation);
-		    //bw = new BufferedWriter(fw);
-		    calendar = Calendar.getInstance();
-		    frame.addWindowListener (new java.awt.event.WindowAdapter() {
+		   	//bw = new BufferedWriter(fw);
+		    	calendar = Calendar.getInstance();
+		    	frame.addWindowListener (new java.awt.event.WindowAdapter() {
 		        
 		    @Override
 		    public void windowClosing(java.awt.event.WindowEvent windowEvent) {
-                try {
-                    finalText = text;
-                    File dailyRemindersFile = new File(desktopLocationString + "/DailyReminders");
-                    if (dailyRemindersFile.exists() == false) {
-                        dailyRemindersFile.mkdir();
-                    } else if (dailyRemindersFile.exists() == true) {
+                    	try {
+                    	    finalText = text;
+                            File dailyRemindersFile = new File(desktopLocationString + "/DailyReminders");
+                            if (dailyRemindersFile.exists() == false) {
+                            	dailyRemindersFile.mkdir();
+                            } else if (dailyRemindersFile.exists() == true) {
                     }
                     String dailyRemindersPath = desktopLocationString + "\\DailyReminders";
                     Date date = calendar.getTime();
@@ -72,7 +70,7 @@ public class Reminder implements KeyListener {
                         bw2.append(finalText + "\n");
                     }else {
                         //System.out.println("first");
-                       // bw2.write(finalText + "\n");
+                        // bw2.write(finalText + "\n");
                     }
                     //bw.flush();
                     //bw.close();
