@@ -46,9 +46,9 @@ public class Reminder implements KeyListener {
 		frame.setVisible(true); 
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		desktopLocationString = System.getProperty("user.home") + "/Desktop";
-		File desktopLocation = new File(desktopLocationString, "test.txt");
-		fw = new FileWriter(desktopLocation);
-		bw = new BufferedWriter(fw);
+		//File desktopLocation = new File(desktopLocationString, "test.txt");
+		//fw = new FileWriter(desktopLocation);
+		//bw = new BufferedWriter(fw);
 		calendar = Calendar.getInstance();
 		frame.addWindowListener (new java.awt.event.WindowAdapter() {
 		        
@@ -81,8 +81,8 @@ public class Reminder implements KeyListener {
                        		 System.out.println("first");
                         	 bw2.write(finalText + "\n");
                    		}
-                    		bw.flush();
-                    		bw.close();
+                    		//bw.flush();
+                    		//bw.close();
                     		bw2.flush();
                     		bw2.close();
 			    } catch (IOException e) {
