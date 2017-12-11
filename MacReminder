@@ -16,7 +16,7 @@ import java.util.Date;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 	
-public class Reminder implements KeyListener {
+public class MacReminder implements KeyListener {
 
 		static String text = "";
 		static String finalText = "";
@@ -40,7 +40,7 @@ public class Reminder implements KeyListener {
 		label.setFont(font);
 		label.setText("Write your Daily Reminder for Today."); 
 	        frame.setTitle("Daily Reminder Application");
-	        frame.addKeyListener(new Reminder());
+	        frame.addKeyListener(new MacReminder());
 		frame.add(label);
 		frame.setSize(screenWidth, screenHeight); 
 		frame.setVisible(true); 
