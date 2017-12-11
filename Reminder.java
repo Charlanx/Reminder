@@ -29,66 +29,59 @@ public class Reminder implements KeyListener {
 		static int screenHeight;
 		static String desktopLocationString;
 		static Calendar calendar;
-      	        static FileWriter fw2;
-                static BufferedWriter bw2;
+        static FileWriter fw2;
+        static BufferedWriter bw2;
 		public static void main(String[] args) throws IOException {
-	        Dimension screenDimensions = Toolkit.getDefaultToolkit().getScreenSize();
+		    Dimension screenDimensions = Toolkit.getDefaultToolkit().getScreenSize();
 	        screenWidth = (int) screenDimensions.getWidth();
 	        screenHeight = (int) screenDimensions.getHeight();
-                JFrame frame = new JFrame();
-		font = new Font("TimesNewRoman", Font.PLAIN, 100);
-		label.setFont(font);
-		label.setText("Write your Daily Reminder for Today."); 
+			JFrame frame = new JFrame();
+			font = new Font("TimesNewRoman", Font.PLAIN, 100);
+			label.setFont(font);
+			label.setText("Write your Daily Reminder for Today."); 
 	        frame.setTitle("Daily Reminder Application");
-	        frame.addKeyListener(new Reminder());
-		frame.add(label);
-		frame.setSize(screenWidth, screenHeight); 
-		frame.setVisible(true); 
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		desktopLocationString = System.getProperty("user.home") + "/Desktop";
-		//File desktopLocation = new File(desktopLocationString, "test.txt");
-		//fw = new FileWriter(desktopLocation);
-		//bw = new BufferedWriter(fw);
-		calendar = Calendar.getInstance();
-		frame.addWindowListener (new java.awt.event.WindowAdapter() {
+			frame.addKeyListener(new Reminder());
+			frame.add(label);
+			frame.setSize(screenWidth, screenHeight); 
+			frame.setVisible(true); 
+			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			desktopLocationString = System.getProperty("user.home") + "/Desktop";
+			//File desktopLocation = new File(desktopLocationString, "test.txt");
+			//fw = new FileWriter(desktopLocation);
+		    //bw = new BufferedWriter(fw);
+		    calendar = Calendar.getInstance();
+		    frame.addWindowListener (new java.awt.event.WindowAdapter() {
 		        
 		    @Override
 		    public void windowClosing(java.awt.event.WindowEvent windowEvent) {
-		    	try {
-                    		finalText = text;
-                   		//System.out.println("application closing");
-                    		File dailyRemindersFile = new File(desktopLocationString + "/DailyReminders");
-                    		if (dailyRemindersFile.exists() == false) {
-                        		dailyRemindersFile.mkdir();
-                    		} else if (dailyRemindersFile.exists() == true) {
-                    		//Don't make the file it already exists.
-                   		}
-                    		//DailyReminders Folder exists
-                    		String dailyRemindersPath = desktopLocationString + "\\DailyReminders";
-                    		//String currentDate = (calendar.DAY_OF_YEAR + "/" + calendar.DAY_OF_MONTH + "/" + calendar.DAY_OF_WEEK);
-                    		Date date = calendar.getTime();
-                    		SimpleDateFormat formattedDate = new SimpleDateFormat("MM-dd-YYYY");
-                    		String currentDate = formattedDate.format(date);
-                    		File dailyRemindersLocation = new File(dailyRemindersPath, "\\DailyReminders" + currentDate + ".txt");
-                    		//System.out.println("path: " + dailyRemindersLocation.getPath());
-                    		fw2 = new FileWriter(dailyRemindersLocation, true);
-                    		bw2 = new BufferedWriter(fw2);
-                    		//System.out.println("what is in filetext: " + finalText);
-                    		if (dailyRemindersLocation.exists() == true) {
-                        		//System.out.println("poppy 1");  
-                       	 		bw2.append(finalText + "\n");
-                    		} else {
-                       		 System.out.println("first");
-                        	 bw2.write(finalText + "\n");
-                   		}
-                    		//bw.flush();
-                    		//bw.close();
-                    		bw2.flush();
-                    		bw2.close();
-			    } catch (IOException e) {
-                   	    // TODO Auto-generated catch block
-                            e.printStackTrace();
-                	    }
+                try {
+                    finalText = text;
+                    File dailyRemindersFile = new File(desktopLocationString + "/DailyReminders");
+                    if (dailyRemindersFile.exists() == false) {
+                        dailyRemindersFile.mkdir();
+                    } else if (dailyRemindersFile.exists() == true) {
+                    }
+                    String dailyRemindersPath = desktopLocationString + "\\DailyReminders";
+                    Date date = calendar.getTime();
+                    SimpleDateFormat formattedDate = new SimpleDateFormat("MM-dd-YYYY");
+                    String currentDate = formattedDate.format(date);
+                    File dailyRemindersLocation = new File(dailyRemindersPath, "\\DailyReminders" + currentDate + ".txt");
+                    fw2 = new FileWriter(dailyRemindersLocation, true);
+                    bw2 = new BufferedWriter(fw2);
+                    if (dailyRemindersLocation.exists() == true) {
+                        bw2.append(finalText + "\n");
+                    }else {
+                        //System.out.println("first");
+                       // bw2.write(finalText + "\n");
+                    }
+                    //bw.flush();
+                    //bw.close();
+                    bw2.flush();
+                    bw2.close();
+                } catch (IOException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
 		    }});
 		}
 		       
@@ -108,14 +101,6 @@ public class Reminder implements KeyListener {
 
 	@Override
 	public void keyReleased(KeyEvent e) {
-	    //System.out.println("Text that should be added: " + text);
-	    /*
-       	 	try {
-           		bw.write(text + "\n");
-        	} catch (IOException e1) {
-            		// TODO Auto-generated catch block
-            		e1.printStackTrace();
-        	}
-        	*/
+
 	}
-}
+	}
